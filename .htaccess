@@ -1,0 +1,7 @@
+<Files ~ "^.(htaccess|htpasswd)$">
+deny from all
+</Files>
+Options Indexes
+DirectoryIndex index.html       
+Redirect permanent http://jcaspian.co.cc/ http://www.jcaspian.co.cc/
+order deny,allow

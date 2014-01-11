@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>JooEast Sdn Bhd</title>
+<script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
+<script type="text/javascript" src="js/transition.js"></script>
+<link href="style/main.css" rel="stylesheet" type="text/css" />
+<link href="home/slider.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.boximg {
+	width: 260px;
+	/*
+	height: 130px;
+	*/
+}
+h1 {
+	padding: 10px 0 30px 0;
+	margin: 0 0 20px 0;
+	font-size: 36px;
+	font-weight: bold;
+	color: #2a2a2a;
+	border-bottom: 5px #2a2a2a solid;
+}
+.title {
+	font-size: 16px;
+	font-weight: bold;
+}
+.boxcontent {
+	margin-left: 50px;
+	padding: 10px;
+}
+.box {
+	width: 266px;
+	float: left;
+	padding: 20px;
+}
+#clr {
+	clear: both;
+}
+.seperator {
+	height: 17px;
+	width: 200px;
+}
+.mini-nav {
+	font-size: 15px;
+}
+.mini-nav:hover {
+	
+}
+</style>
+<script type="text/javascript">
+	var size = '15 x 15';
+	
+	function getAlbums() {
+		try {
+			var param = {};
+			$.get('http://graph.facebook.com/JooEastSB/albums', param, onAlbumLoads, 'json');
+		} catch (ex) {
+			console.log(ex);
+		}
+	}
+	
+	function onAlbumLoads(resp) {
+		try {
+			if (resp.data != null) {
+				for (var i = 0; i < resp.data.length; i++) {
+					var album = resp.data[i];
+					
+					if (album.name.indexOf(size) != -1) {
+						$('body h1:eq(0)').empty().append(album.name);
+						$('.mini-nav').append(album.name);
+						getPhotos(album.id);
+					}
+				}
+			}
+		} catch (ex) {
+			console.log(ex);
+		}
+	}
+	
+	function getPhotos(albumId) {
+		try {
+			var param = {};
+			$.get('http://graph.facebook.com/' + albumId + '/photos', param, onPhotoLoads, 'json');
+		} catch (ex) {
+			console.log(ex);
+		}
+	}
+	
+	function onPhotoLoads(resp) {
+		try {
+			if (resp.data != null) {
+				for (var i = 0; i < resp.data.length; i++) {
+					var photo = resp.data[i];
+					
+					var box = $('<div>').addClass('box').data('data', photo);
+					//var separator = $('<img>').addClass('seperator').attr('alt', '').attr('src', 'style/title_bg.gif');
+					var boximg = $('<img>').addClass('boximg').addClass('framed-img').attr('alt', '').attr('src', photo.source);
+					var link = $('<a>').attr('href', photo.link).attr('target', '_blank').attr('title', 'More information.');
+					var like = $('<iframe>').attr('src', '//www.facebook.com/plugins/like.php?href=' + photo.source + '&amp;send=false&amp;layout=standard&amp;width=260&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=25&amp;appId=169709503073848').attr('scrolling', 'no').attr('frameborder', '0').attr('style', 'border:none; overflow:hidden; width:260px; height:25px;').attr('allowTransparency', 'true');
+					
+					box.append(boximg).append($('<br>')).append($('<br>')).append(like);
+					link.append(box);
+					
+					$('#box-container').append(link);
+				}
+			}
+		} catch (ex) {
+			console.log(ex);
+		}
+	}
+	
+	function init() {
+		try {
+			if (!window.console) window.console = {};
+			if (!window.console.log) window.console.log = function () { };
+		} catch (ex) {
+			alert(ex);
+		}
+	}
+	
+	$(function () {
+		init();
+		getAlbums();
+	});
+</script>
+</head>
+
+<body>
+<div class="mini-nav framed-img">
+	<a href="home.html">Home</a>
+	&#187;
+	<a href="canopy.html">Canopy</a>
+	&#187;
+</div>
+<h1>Canopy - Size</h1>
+<div id="box-container">
+<!--
+	<div class="box">
+		<span class="title">Canopy Sizes</span><br/>
+		We have several canopy sizes to suit your needs.<br/>
+		<img src="style/title_bg.gif" alt="" class="seperator" /><br/><br/>
+		<img src="home/retro.jpg" alt="" class="boximg framed-img" /><br/><br/>
+		<p>
+		(Measurement: Feet x Feet)
+		<br/>
+		<a href="canopy-6x6.html">6 x 6</a> |
+		<a>6 x 10</a> |
+		<a>8 x 8</a> |
+		<a>8 x 12</a> |
+		<a>10 x 10</a> |
+		<a>10 x 15</a> |
+		<a>15 x 15</a>
+		</p>
+	</div>
+	<div class="box">
+		<span class="title">WELCOME TO JOOEASTSB.COM</span><br/>
+		Providing quality canopies since 2006.<br/>
+		<img src="style/title_bg.gif" alt="" class="seperator" /><br/><br/>
+		<img src="home/retro.jpg" alt="" class="boximg framed-img" /><br/><br/>
+		<p>
+		JooEast Enterprise was founded by Mr. Tan Tee Joo in year 2006 selling and renting canopies. 
+		The main store was located in Kuantan Pahang. 
+		A year later, Mr. Tan expanded his business in Kuala Lumpur and started the first branch in Ampang. 
+		As the year goes by, Mr. Tan continued to expand his business and currently he owns 4 different branches all located in Kuala Lumpur.
+		</p>
+	</div>
+	<div class="box">
+		<span class="title">WELCOME TO JOOEASTSB.COM</span><br/>
+		Providing quality canopies since 2006.<br/>
+		<img src="style/title_bg.gif" alt="" class="seperator" /><br/><br/>
+		<img src="home/retro.jpg" alt="" class="boximg framed-img" /><br/><br/>
+		<p>
+		JooEast Enterprise was founded by Mr. Tan Tee Joo in year 2006 selling and renting canopies. 
+		The main store was located in Kuantan Pahang. 
+		A year later, Mr. Tan expanded his business in Kuala Lumpur and started the first branch in Ampang. 
+		As the year goes by, Mr. Tan continued to expand his business and currently he owns 4 different branches all located in Kuala Lumpur.
+		</p>
+	</div>
+-->
+</div>
+<div id="clr"></div>
+</body>
+
+</html>

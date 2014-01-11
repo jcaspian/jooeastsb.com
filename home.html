@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<title>JooEast Sdn Bhd</title>
+	<script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
+	<script type="text/javascript" src="js/jquery.cycle.all.min.js"></script>
+	<script type="text/javascript" src="js/transition.js"></script>
+	<script type="text/javascript">
+		// <![CDATA[
+		$(window).load(function(){
+			setTimeout("startCycle()", 1);
+		});
+		function startCycle(){
+			$('#slideshow').cycle({
+				fx:     'fade',
+				speed:  'slow',
+				timeout: 10000,
+				pager:  '#slider_nav',
+				pagerAnchorBuilder: function(idx, slide) {
+					// return sel string for existing anchor
+					return '#slider_nav li:eq(' + (idx) + ') a';
+				}
+			});
+		};
+		// ]]>
+	</script>
+	<link href="style/main.css" rel="stylesheet" type="text/css" />
+	<link href="home/slider.css" rel="stylesheet" type="text/css" />
+	<style type="text/css">
+		#box-container {
+			/*
+			height: 110px;
+			*/
+			height: auto;
+			width: 100%;
+			border-top: 1px #e9e9e9 solid;
+			border-bottom: 1px #e9e9e9 solid;
+			margin-top: 40px;
+		}
+		.box {
+			width: 285px;
+			float: left;
+			/*
+			height: 90px;
+			*/
+			height: auto;
+			padding: 10px;
+		}
+		.box:hover {
+			background: #f7f7f7;
+		}
+		.boximg {
+			float: left;
+			margin-top: 10px;
+		}
+		.title {
+			font-size: 16px;
+			font-weight: bold;
+		}
+		.boxcontent {
+			margin-left: 50px;
+			padding: 10px;
+		}
+		#misc {
+			width: 419px;
+			float: left;
+			padding: 20px;
+		}
+		#clr {
+			clear: both;
+		}
+		.clear {
+			clear: both;
+		}
+	</style>
+</head>
+
+<body>
+<div id="slider">
+	<!--start slideshow -->
+	<div id="slideshow" style="position: relative; ">
+		<div class="slider-item" style="position: absolute; top: 0px; left: 0px; width: 917px; height: 398px; z-index: 4; opacity: 0; display: none; "><a href="canopy.html" class="fadeself"><img src="home/simple_img_1.jpg" alt="icon" width="917" height="398" border="0" /></a></div>
+		<div class="slider-item" style="position: absolute; top: 0px; left: 0px; width: 917px; height: 398px; z-index: 4; opacity: 0; display: none; "><a href="canopy.html" class="fadeself"><img src="home/simple_img_2.jpg" alt="icon" width="917" height="398" border="0" /></a></div>
+		<div class="slider-item" style="position: absolute; top: 0px; left: 0px; width: 917px; height: 398px; z-index: 4; opacity: 0; display: none; "><a href="reference.html" class="fadeself"><img src="home/simple_img_3.jpg" alt="icon" width="917" height="398" border="0" /></a></div>
+		<div class="slider-item" style="position: absolute; top: 0px; left: 0px; width: 917px; height: 398px; z-index: 4; opacity: 0; display: none; "><a href="canopy.html" class="fadeself"><img src="home/simple_img_4.jpg" alt="icon" width="917" height="398" border="0" /></a></div>
+	</div>
+	<!--end #slideshow -->
+	<div class="controls-center">
+		<div id="slider_controls">
+			<ul id="slider_nav">
+				<!--Slide 1 -->
+				<li><a href="#" class="activeSlide"></a></li>
+				<!--Slide 2 -->
+				<li><a href="#" class=""></a></li>
+				<!--Slide 3 -->
+				<li><a href="#" class=""></a></li>
+				<!--Slide 4 -->
+				<li><a href="#" class=""></a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div id="box-container">
+	<div class="box">
+		<img src="home/size.png" alt="" class="boximg" />
+		<div class="boxcontent">
+			<span class="title">Several Sizes Available</span><br/><br/>
+			Our canopies comes in several sizes to suit your needs.
+			<br/>
+			<a href="canopy.html" class="fadeself">&#187; read more</a>
+		</div>
+	</div>
+	<div class="box" style="border-left: 1px #e9e9e9 solid;border-right: 1px #e9e9e9 solid;width: 286px!important;">
+		<img src="home/money.png" alt="" class="boximg" />
+		<div class="boxcontent">
+			<span class="title">Need Recommendation?</span><br/><br/>
+			Check out our recommendation table to find which canopy best suits you.
+			<br/>
+			<a href="canopy.html" class="fadeself">&#187; recommendation</a>
+		</div>
+	</div>
+	<div class="box">
+		<img src="home/bulk.png" alt="" class="boximg" />
+		<div class="boxcontent">
+			<span class="title">WHOLESALER / RESELLER?</span><br/><br/>
+			Get discount on bulk purchases now. Please contact us for further details.
+			<br/>
+			<a href="contact.html" class="fadeself">&#187; contact us</a>
+		</div>
+	</div>
+	<div class="clear"></div>
+</div>
+<div id="misc">
+	<span class="title">WELCOME TO JOOEASTSB.COM</span><br/>
+	Providing quality canopies since 2006.<br/>
+	<img src="style/title_bg.gif" alt="" style="width:400px;height:17px;" /><br/><br/>
+	<img src="home/retro.jpg" alt="" style="width: 400px;" class="framed-img" /><br/><br/>
+	<p>
+	JooEast Enterprise was first founded by Mr. Tan Tee Joo in year 2006 selling and renting canopies. 
+	The main store was located in Kuantan Pahang. <br/>
+	<a href="about.html" class="fadeself">&#187; read more</a>
+	<span style="display:none;">
+	A year later, Mr. Tan expanded his business in Kuala Lumpur and started the first branch in Ampang. 
+	As the year goes by, Mr. Tan continued to expand his business and currently he owns 4 different branches all located in Kuala Lumpur.</span>
+	</p>
+</div>
+<div id="misc">
+	<span class="title">WHY CHOOSE OUR CANOPY?</span><br/>
+	Because we are the only SSS!<br/>
+	<img src="style/title_bg.gif" alt="" style="width:400px;height:17px;" /><br/><br/>
+	<img src="home/hands2.jpg" alt="" style="width: 400px;" class="framed-img" /><br/><br/>
+	<p>
+		Sales, Service and Spare Part.
+	</p>
+</div>
+<div id="clr"></div>
+</body>
+
+</html>
